@@ -1,0 +1,195 @@
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.JFrame.*;
+import java.lang.*;
+
+public class PlayPanel extends JPanel{
+  
+  public PlayPanel(){
+    setBackground(new Color(100,149,237));
+    setLayout(new BorderLayout());
+    JPanel toppanel = new JPanel();
+    add(toppanel,BorderLayout.NORTH);
+    ImageIcon playerturnicon = createImageIcon("playersturnbutton.png","");
+    JLabel playersturn = new JLabel(playerturnicon);
+    toppanel.add(playersturn);
+    JLabel turn = new JLabel("");
+    toppanel.add(turn);
+    String redturn= new String("<html><font color=#FFD700 size=6>Red </font></html>");
+    String greenturn= new String("<html><font color=#FFD700 size=6>Green </font></html>");
+    String blueturn= new String("<html><font color=#FFD700 size=7>Blue </font></html>");
+    String yellowturn= new String("<html><font color=#FFD700 size=7>Yellow </font></html>");
+    
+    ImageIcon actionbuttonicon = createImageIcon("actionbutton.png","");
+    JLabel actionbutton = new JLabel(actionbuttonicon);
+    toppanel.add(actionbutton);
+    JLabel action= new JLabel("");
+    toppanel.add(action);
+    String roll= new String("<html><font color=#FFD700 size=5>Click on the die to roll </font></html>");
+    String clik= new String("<html><font color=#FFD700 size=5>Click on one of your pieces to make a move </font></html>");
+    toppanel.setBackground(new Color(100,149,237));
+    add(makeCenterPanel(),BorderLayout.WEST);
+    JPanel homePanel= new JPanel();
+    add(homePanel,BorderLayout.CENTER);
+    homePanel.setBackground(new Color(100,149,237));
+    homePanel.setLayout(new GridLayout(7,1,-5,-5));
+    homePanel.setPreferredSize(new Dimension(100,100));
+    JButton redhome= new JButton();
+    JButton greenhome=new JButton();
+    JButton yellowhome=new JButton();
+    JButton bluehome=new JButton();
+    ImageIcon homeicon= createImageIcon("homehome.png","");
+    JLabel homename=new JLabel(homeicon);
+    redhome.setPreferredSize(new Dimension(50, 50));
+    homePanel.add(homename);
+    homePanel.add(redhome);
+    homePanel.add(greenhome);
+    homePanel.add(yellowhome);
+    homePanel.add(bluehome);
+    ImageIcon redhome0=createImageIcon("redhome.png","");
+    ImageIcon bluehome0=createImageIcon("bluehome.png","");
+    ImageIcon greenhome0=createImageIcon("greenhome.png","");
+    ImageIcon yellowhome0=createImageIcon("yellowhome.png","");
+    ImageIcon redhome1=createImageIcon("redhome1.png","");
+    ImageIcon redhome2=createImageIcon("redhome2.png","");
+    ImageIcon redhome3=createImageIcon("redhome3.png","");
+    ImageIcon redhome4=createImageIcon("redhome4.png","");
+    ImageIcon bluehome1=createImageIcon("bluehome1.png","");
+    ImageIcon bluehome2=createImageIcon("bluehome2.png","");
+    ImageIcon bluehome3=createImageIcon("bluehome3.png","");
+    ImageIcon bluehome4=createImageIcon("bluehome4.png","");
+    ImageIcon greenhome1=createImageIcon("greenhome1.png","");
+    ImageIcon greenhome2=createImageIcon("greenhome2.png","");
+    ImageIcon greenhome3=createImageIcon("greenhome3.png","");
+    ImageIcon greenhome4=createImageIcon("greenhome4.png","");
+    ImageIcon yellowhome5=createImageIcon("yellowhome5.png","");
+    
+    redhome.setIcon(redhome0);
+    greenhome.setIcon(greenhome0);
+    yellowhome.setIcon(yellowhome0);
+    bluehome.setIcon(bluehome0);
+    
+    JPanel leaderboard= new JPanel();
+    add(leaderboard,BorderLayout.EAST);
+    ImageIcon bluespacericon=createImageIcon("bluespacer2.png","");
+    JLabel bluespacer2=new JLabel(bluespacericon);
+    leaderboard.add(bluespacer2);
+    
+
+    
+
+  }
+      private JPanel makeCenterPanel () {
+    // create centerPanel using GridLayout manager
+    JPanel centerPanel = new JPanel();
+    //centerPanel.setBackground(Color.blue);
+    centerPanel.setLayout(new GridLayout(11, 11, -5, -5)); // rows, cols, hgap, vgap
+    JButton[][] buttons = new JButton[11][11];
+    ImageIcon greensquare=createImageIcon("greensquare.png","");
+    ImageIcon bluesquare=createImageIcon("bluesquare.png","");
+    ImageIcon yellowsquare=createImageIcon("yellowsquare.png","");
+    ImageIcon redsquare=createImageIcon("redsquare.png","");
+    ImageIcon diesquare=createImageIcon("diesquare.png","");
+    ImageIcon greenbordersquare=createImageIcon("greenbordersquare.png","");
+    ImageIcon bluebordersquare=createImageIcon("bluebordersquare.png","");
+    ImageIcon yellowbordersquare=createImageIcon("yellowbordersquare.png","");
+    ImageIcon redbordersquare=createImageIcon("redbordersquare.png","");
+    ImageIcon yellowS=createImageIcon("yellowS.png","");
+    ImageIcon blueS=createImageIcon("blueS.png","");
+    ImageIcon redS=createImageIcon("redS.png","");
+    ImageIcon greenS=createImageIcon("greenS.png","");
+    
+    for (int i = 0; i<11; i++) {
+      for (int j=0; j<11; j++) {
+        buttons[i][j] = new JButton(" ");
+        buttons[i][j].setPreferredSize(new Dimension(50, 50));
+        //buttons[i][j].addActionListener(new ButtonListener());     
+        buttons[i][j].setBackground(new Color(170,224,188)); 
+        buttons[i][j].setForeground(new Color(36,134,255));  
+        buttons[i][j].setFont(new Font("Serif", Font.ITALIC, 36));
+        //buttons[i][j].setIcon(redbutton);
+        // add each Button to the Panel
+      }
+    }
+
+   for(int i=0;i<5;i++){
+      for(int j=0;j<5;j++){
+        buttons[i][j].setIcon(bluesquare);
+    }
+   }
+   
+   
+   for(int i=6;i<11;i++){
+     for(int j=0;j<5;j++){
+       buttons[i][j].setIcon(greensquare);
+     }
+   }
+   
+     for(int i=0;i<5;i++){
+     for(int j=6;j<11;j++){
+       buttons[i][j].setIcon(redsquare);
+     }
+   } 
+   
+   for(int i=6;i<11;i++){
+     for(int j=6;j<11;j++){
+       buttons[i][j].setIcon(yellowsquare);
+     }
+   }
+   
+   buttons[5][5].setIcon(diesquare);
+   buttons[6][6].setIcon(yellowbordersquare);
+   buttons[7][7].setIcon(yellowbordersquare);
+   buttons[8][8].setIcon(yellowbordersquare);
+   buttons[9][9].setIcon(yellowbordersquare);
+   buttons[4][4].setIcon(bluebordersquare);
+   buttons[3][3].setIcon(bluebordersquare);
+   buttons[2][2].setIcon(bluebordersquare);
+   buttons[1][1].setIcon(bluebordersquare);
+   buttons[4][6].setIcon(redbordersquare);
+   buttons[3][7].setIcon(redbordersquare);
+   buttons[2][8].setIcon(redbordersquare);
+   buttons[1][9].setIcon(redbordersquare);
+   buttons[6][4].setIcon(greenbordersquare);
+   buttons[7][3].setIcon(greenbordersquare);
+   buttons[8][2].setIcon(greenbordersquare);
+   buttons[9][1].setIcon(greenbordersquare);
+   buttons[0][0].setIcon(blueS);
+   buttons[10][10].setIcon(yellowS);
+   buttons[10][0].setIcon(greenS);
+   buttons[0][10].setIcon(redS);
+    
+       
+   for(int i=0;i<11;i++){
+      for(int j=0;j<11;j++){
+        centerPanel.add(buttons[i][j]);
+      }
+    }
+   
+   
+    return centerPanel;
+      }
+    
+protected ImageIcon createImageIcon(String path,String description) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL, description);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
+     /* 
+    JPanel board = new JPanel();
+    add(board);
+    board.setLayout (new GridLayout (5, 5));
+    JLabel sq1= new JLabel();
+    board.add(sq1);
+    sq1.setBackground(new Color(200,100,100));
+    */
+    
+    
+  
+  
+}

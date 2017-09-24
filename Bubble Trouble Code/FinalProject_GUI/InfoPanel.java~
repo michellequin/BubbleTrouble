@@ -1,0 +1,60 @@
+/**
+ * FILE NAME: AboutPanel.java
+ * WHO: Isabel D'Alessandro 
+ * WHAT: Defines the About panel, one of the tabs on the tabbed 
+ * pane of the GradSchoolsGUI
+ * It communicates with the GradSchools.java class where 
+ * the functionality resides.
+ * CS230 Assignment #8
+ * WHEN: 19 April, 2016
+ * */
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class InfoPanel extends JPanel{
+  
+  public InfoPanel(){
+    
+    setLayout (new GridLayout (2, 1));
+    setBackground(new Color(100,149,237));
+    
+    
+    JLabel l1= new JLabel("<html>  <CENTER>  <font color=#191970, size=7><b> GradSchools Picker  </b></font>  </CENTER>  <br>  <CENTER> <font color=#FCFCFC size=5> Choose the Grad School that fits you best!</font></CENTER> <br><font size=5>Select the <b>'Add Schools'</b> tab to add Schools. Then select the <b>'Evaluate'</b> tab to evaluate them </font></a>  </html>");
+    JPanel images = new JPanel();
+    JPanel text = new JPanel();
+    //adds three graduation cap images to the panel 
+    ImageIcon capicon = createImageIcon("navycap.png","");
+    JLabel cap = new JLabel(capicon);
+    JLabel cap2 = new JLabel(capicon);
+    JLabel cap3 = new JLabel(capicon);
+    add(text);//text Panel
+    text.add(l1);//adds description label to text Panel
+    text.setBackground(new Color(100,149,237));
+    add(images);
+    images.add(cap);
+    images.add(cap2);
+    images.add(cap3);
+    images.setBackground(new Color(100,149,237));
+  }
+  
+  
+   /** 
+   * Creates and returns an ImageIcon out of an image file.
+   * @param path The path to the imagefile relevant to the current file.
+   * @param description A short description to the image.
+   * @return ImageIcon An ImageIcon, or null if the path was invalid. 
+   */
+  protected ImageIcon createImageIcon(String path,
+                                           String description) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL, description);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
+                            
+}

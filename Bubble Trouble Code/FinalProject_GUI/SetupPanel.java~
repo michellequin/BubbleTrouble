@@ -1,0 +1,134 @@
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.JFrame.*;
+import java.lang.*;
+
+public class SetupPanel extends JPanel{
+  private PlayGame game;
+  
+  public SetupPanel(/*PlayGame g*/){
+    //this.game=g;
+    setBackground(new Color(100,149,237));
+    JPanel instructions= new JPanel();
+    JLabel infolabel = new JLabel("<html><CENTER><font color=#FFFFFF size=5>Have each player type their name in the box next to the fish they want to play as. Then click <b>'Add Players'</b>!</font><br><font color=#FFB90F size=5> Click the <b>'Play'</b> tab to start the game!</font></CENTER></html>");
+    add(instructions);
+    instructions.setBackground(new Color(100,149,237));
+    instructions.add(infolabel);
+    JPanel players = new JPanel();
+    add(players);
+    players.setBackground(new Color(100,149,237));
+    players.setLayout (new GridLayout (0, 3));
+
+    
+    ImageIcon redfishicon = createImageIcon("redfish.png","");
+    JLabel redfish = new JLabel(redfishicon);
+    players.add(redfish);
+    //JPanel redbox = new JPanel();
+    //players.add(redbox);
+    //redbox.setPreferredSize(new Dimension(100,100));
+    JTextField redname= new JTextField(10);
+    redname.setPreferredSize(new Dimension(50,50)); 
+    players.add(redname);
+    Font bigFont = redname.getFont().deriveFont(Font.PLAIN, 20f);
+    redname.setFont(bigFont);
+    ImageIcon bluespacericon = createImageIcon("bluespacer.png","");
+    JLabel bluespacer = new JLabel(bluespacericon);
+    players.add(bluespacer);
+    
+    ImageIcon bluefishicon = createImageIcon("bluefish.png","");
+    JLabel bluefish = new JLabel(bluefishicon);
+    players.add(bluefish);
+    JTextField bluename= new JTextField(10);
+    bluename.setPreferredSize(new Dimension(50,50)); 
+    players.add(bluename);
+    Font bigFont2 = bluename.getFont().deriveFont(Font.PLAIN, 20f);
+    bluename.setFont(bigFont2);
+    JLabel bluespacer2 = new JLabel(bluespacericon);
+    players.add(bluespacer2);
+    
+    ImageIcon greenfishicon = createImageIcon("greenfish.png","");
+    JLabel greenfish = new JLabel(greenfishicon);
+    players.add(greenfish);
+    JTextField greenname= new JTextField(20);
+    greenname.setPreferredSize(new Dimension(50,50)); 
+    players.add(greenname);
+    Font bigFont3 = greenname.getFont().deriveFont(Font.PLAIN, 20f);
+    greenname.setFont(bigFont3);
+    JLabel bluespacer3 = new JLabel(bluespacericon);
+    bluespacer3.setPreferredSize(new Dimension(50,50));
+    players.add(bluespacer3);
+    
+    ImageIcon yellowfishicon = createImageIcon("yellowfish.png","");
+    JLabel yellowfish = new JLabel(yellowfishicon);
+    players.add(yellowfish);
+    JTextField yellowname= new JTextField(20);
+    yellowname.setPreferredSize(new Dimension(50,50)); 
+    players.add(yellowname);
+    Font bigFont4 = yellowname.getFont().deriveFont(Font.PLAIN, 20f);
+    yellowname.setFont(bigFont4);
+    
+
+
+    JButton addButton = new JButton (new ImageIcon ("addbutton.png"));
+    players.add(addButton);
+    addButton.setPreferredSize(new Dimension(100, 10));
+    //ButtonListener listener= new ButtonListener();
+    //addbutton.addActionListener(listener);
+    
+    
+  }
+  
+  
+    protected ImageIcon createImageIcon(String path,
+                                           String description) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL, description);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
+    /*
+    private class ButtonListener implements ActionListener{
+    
+    public void actionPerformed(ActionEvent event){
+      if(event.getSource()==addButton){// if Add School button is pressed 
+        if (redname.getText().equals("")){
+          ComputerPlayer redC=new ComputerPlayer("red");
+        }
+        else{
+          Player redP= new Player("red",redname.getText());
+      }
+     
+         if (greenname.getText().equals("")){
+          ComputerPlayer redC=new ComputerPlayer("green");
+        }
+        else{
+          Player greenP= new Player("green",greenname.getText());
+      } 
+      
+        
+          if (bluename.getText().equals("")){
+          ComputerPlayer blueC=new ComputerPlayer("blue");
+        }
+        else{
+          Player blueP= new Player("blue",bluename.getText());
+      }
+        
+          if (yellowname.getText().equals("")){
+          ComputerPlayer yellowC=new ComputerPlayer("yellow");
+        }
+        else{
+          Player yellowP= new Player("yellow",yellowname.getText());
+      }
+        
+        
+    }
+    
+    }
+    */
+    
+    
+}

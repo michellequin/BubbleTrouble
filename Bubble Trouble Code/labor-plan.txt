@@ -1,0 +1,47 @@
+labor-plan.txt
+CS 230 Final Project
+
+Title: Bubble Trouble
+By: Isabel D’Alessandro, Leslie Gates, and Michelle Quin
+—————————
+
+Isabel D’Alessandro:
+
+-GUI
+	Contains about tab, enter player information tab, and game tab (with board)
+
+————————
+
+Leslie Gates:
+
+-Pawn(Color)
+	Objects that have a color (associated with a player) and position. Used in 
+	Player/Board.
+
+-Board()
+	Object that lays out game board using arrays for the different types of 
+	zones. Limits access to each zone for each color. Uses arrays.
+
+————————
+
+Michelle Quin:
+
+-Die()
+	Return a random number between 1-6. Contains roll method.
+
+-Player(Name, Color)
+	Creates a player object which is associated with a single player of the game.
+	Has ability to roll die and move pawns. Each layer has 4 pawns.
+
+-ComputerPlayer(Color)
+	Inherits from Player class. Automatically rolls and moves during turn.
+
+————————
+
+Leslie Gates and Michelle Quin:
+
+-PlayGame(players)
+	Initiates the game once players have been chosen. Uses queue.
+
+-Winning()
+	Keeps track of who is currently in the lead. Uses Max Heap.
